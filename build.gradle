@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'dsis.admin'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}\
+
+dependencies {
+    implementation files(
+            'D:/Development Tools/javafx-sdk-20.0.1/lib/javafx.base.jar',
+            'D:/Development Tools/javafx-sdk-20.0.1/lib/javafx.controls.jar',
+            'D:/Development Tools/javafx-sdk-20.0.1/lib/javafx.fxml.jar',
+            'D:/Development Tools/javafx-sdk-20.0.1/lib/javafx.graphics.jar',
+            'D:/Development Tools/javafx-sdk-20.0.1/lib/javafx.media.jar',
+            'D:/Development Tools/javafx-sdk-20.0.1/lib/javafx.swing.jar',
+            'D:/Development Tools/javafx-sdk-20.0.1/lib/javafx-swt.jar',
+            'D:/Development Tools/javafx-sdk-20.0.1/lib/javafx.web.jar')
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'com.jfoenix:jfoenix:9.0.10'
+}
+
+test {
+    useJUnitPlatform()
+}

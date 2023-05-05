@@ -1,0 +1,56 @@
+﻿.VBox {
+    -fx-background-color: #f8edeb;
+}
+
+.label {
+    -fx-text-fill: #2d2d2d;
+}
+
+.text-field {
+    -fx-background-color: #e9c46a;
+    -fx-border-color: #2d2d2d;
+    -fx-text-fill: #2d2d2d;
+}
+
+.choice-box {
+    -fx-background-color: #e9c46a;
+    -fx-border-color: #2d2d2d;
+    -fx-text-fill: #2d2d2d;
+}
+
+.button {
+    -fx-background-color: #e9c46a;
+    -fx-border-color: #2d2d2d;
+    -fx-text-fill: #2d2d2d;
+}
+
+.button:hover {
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #e9c46a;
+    -fx-text-fill: #f8edeb;
+}
+
+.button:pressed {
+    -fx-background-color: #f8edeb;
+    -fx-border-color: #2d2d2d;
+    -fx-text-fill: #2d2d2d;
+}
+
+.choice-box .list-cell {
+    -fx-background-color: #f8edeb;
+    -fx-text-fill: #2d2d2d;
+}
+
+.choice-box .list-cell:hover {
+    -fx-background-color: #e9c46a;
+    -fx-text-fill: #2d2d2d;
+}
+
+.choice-box .list-cell:pressed {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: #f8edeb;
+}
+
+#responseLabel {
+    -fx-text-fill: #2d2d2d;
+}
