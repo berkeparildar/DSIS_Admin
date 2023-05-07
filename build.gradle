@@ -7,7 +7,7 @@ version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-}\
+}
 
 dependencies {
     implementation files(
@@ -21,7 +21,6 @@ dependencies {
             'D:/Development Tools/javafx-sdk-20.0.1/lib/javafx.web.jar')
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    implementation 'com.jfoenix:jfoenix:9.0.10'
 }
 
 test {

@@ -1,56 +1,49 @@
-﻿.VBox {
-    -fx-background-color: #f8edeb;
-}
-
-.label {
-    -fx-text-fill: #2d2d2d;
-}
-
-.text-field {
-    -fx-background-color: #e9c46a;
-    -fx-border-color: #2d2d2d;
-    -fx-text-fill: #2d2d2d;
-}
-
-.choice-box {
-    -fx-background-color: #e9c46a;
-    -fx-border-color: #2d2d2d;
-    -fx-text-fill: #2d2d2d;
+﻿* {
+    -fx-font-family: "Times New Roman";
 }
 
 .button {
-    -fx-background-color: #e9c46a;
-    -fx-border-color: #2d2d2d;
-    -fx-text-fill: #2d2d2d;
+    -fx-background-color: #313244;
+    -fx-background-radius: 13px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: #fab387;
+    -fx-text-fill: #89b4fa;
+    -fx-font-size: 14pt;
+    -fx-padding: 10px 20px;
+}
+
+.root {
+    -fx-background-color: #1e1e2e;
 }
 
 .button:hover {
-    -fx-background-color: #2d2d2d;
-    -fx-border-color: #e9c46a;
-    -fx-text-fill: #f8edeb;
+    -fx-background-color: #6c7086; 
 }
 
-.button:pressed {
-    -fx-background-color: #f8edeb;
-    -fx-border-color: #2d2d2d;
-    -fx-text-fill: #2d2d2d;
+/* Style the text fields */
+.text-field {
+    -fx-background-color: #313244;
+    -fx-text-fill: #cdd6f4;
+    -fx-border-radius: 5px;
+    -fx-border-color: #f9e2af;
+    -fx-font-size: 14pt;
+    -fx-padding: 5px;
+    -fx-prompt-text-fill: #cdd6f4;
 }
 
-.choice-box .list-cell {
-    -fx-background-color: #f8edeb;
-    -fx-text-fill: #2d2d2d;
+.label {
+    -fx-font-size: 14pt;
+    -fx-text-fill: #cdd6f4;
 }
 
-.choice-box .list-cell:hover {
-    -fx-background-color: #e9c46a;
-    -fx-text-fill: #2d2d2d;
+.confirmation-message {
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: #94e2d5;
 }
 
-.choice-box .list-cell:pressed {
-    -fx-background-color: #2d2d2d;
-    -fx-text-fill: #f8edeb;
-}
-
-#responseLabel {
-    -fx-text-fill: #2d2d2d;
+.error-message {
+    -fx-font-size: 12pt;
+    -fx-text-fill: #f38ba8;
 }
