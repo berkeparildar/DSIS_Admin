@@ -28,7 +28,6 @@ public class Confirmation {
 
         Scene scene = new Scene(layout, 400, 400);
         scene.getStylesheets().add("styles.css");
-        // Set the scene and return it
         return scene;
     }
 }

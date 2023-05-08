@@ -23,8 +23,14 @@ public class SignUpScene {
         // Create UI elements
         Label titleLabel = new Label("Sign Up");
         Label usernameLabel = new Label("Name:");
-        Label passwordLabel = new Label("School ID:");
+        Label facultyLabel = new Label("Faculty:");
+        Label departmentLabel = new Label("Department::");
+        Label regYearLabel = new Label("Registration Year:");
+        Label idLabel = new Label("School ID:");
         TextField usernameTextField = new TextField();
+        TextField facultyTextField = new TextField();
+        TextField departmentTextField = new TextField();
+        TextField regYearTextField = new TextField();
         TextField schoolIDTextField = new TextField();
         Button submitButton = new Button("Submit");
         Button backButton = new Button("Back");
@@ -32,6 +38,10 @@ public class SignUpScene {
         submitButton.setOnAction(event -> {
             users.put("name", usernameTextField.getText());
             users.put("schoolId", schoolIDTextField.getText());
+            users.put("faculty", facultyTextField.getText());
+            users.put("department", departmentTextField.getText());
+            users.put("regYear", regYearTextField.getText());
+            
             try {
                 CloudConnect.callFunction("signup", users);
             } catch (Exception e) {
@@ -41,11 +51,12 @@ public class SignUpScene {
         });
         backButton.setOnAction(event -> sceneManager.showHomeScene());
 
-        VBox layout = new VBox(20, titleLabel, usernameLabel, usernameTextField, passwordLabel, schoolIDTextField,
+        VBox layout = new VBox(20, titleLabel, usernameLabel, usernameTextField, facultyLabel, facultyTextField, 
+                departmentLabel, departmentTextField, regYearLabel, regYearTextField, idLabel, schoolIDTextField,
                 submitButton, backButton);
         layout.setAlignment(Pos.CENTER);
-        
-        Scene scene = new Scene(layout, 400, 400);
+
+        Scene scene = new Scene(layout, 1200, 720);
         scene.getStylesheets().add("styles.css");
         return scene;
     }

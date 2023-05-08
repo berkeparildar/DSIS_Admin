@@ -7,8 +7,10 @@ public class SceneManager {
     private final Stage primaryStage;
     private Scene homeScene;
     private Scene signUpScene;
-    private Scene editScene;
-    private Scene addScene;
+    private Scene addTermScene;
+    private Scene addCourseScene;
+    
+    private Scene setEvalScene;
     
     private Scene confirmationScene;
 
@@ -21,14 +23,16 @@ public class SceneManager {
         HomeScene homeScene = new HomeScene(this);
         SignUpScene signUpScene = new SignUpScene(this);
         Confirmation confirmationScene = new Confirmation(this, "Please Confirm..");
-        EditScene editScene = new EditScene(this);
-        AddScene addScene = new AddScene(this);
+        AddTermScene addTermScene = new AddTermScene(this);
+        AddCourseScene addCourseScene = new AddCourseScene(this);
+        SetEvaluationGrade setEvaluationGrade = new SetEvaluationGrade(this);
 
         this.homeScene = homeScene.getScene();
         this.confirmationScene = confirmationScene.getScene();
         this.signUpScene = signUpScene.getScene();
-        this.editScene = editScene.getScene();
-        this.addScene = addScene.getScene();
+        this.addTermScene = addTermScene.getScene();
+        this.addCourseScene = addCourseScene.getScene();
+        this.setEvalScene = setEvaluationGrade.getScene();
     }
 
     public void showHomeScene() {
@@ -39,12 +43,16 @@ public class SceneManager {
         primaryStage.setScene(signUpScene);
     }
 
-    public void showEditScene() {
-        primaryStage.setScene(editScene);
+    public void showAddTermScene() {
+        primaryStage.setScene(addTermScene);
     }
 
-    public void showAddScene() {
-        primaryStage.setScene(addScene);
+    public void showAddCourseScene() {
+        primaryStage.setScene(addCourseScene);
+    }
+
+    public void showSetEvalGradeScene() {
+        primaryStage.setScene(setEvalScene);
     }
 
     public void showConfirmationScene() {

@@ -8,48 +8,44 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 import java.util.HashMap;
 
-public class AddScene {
+public class AddCourseScene {
     private final SceneManager sceneManager;
     private final HashMap<String, String> courseData;
 
     private final GridPane gridPane;
-
-
-    public AddScene(SceneManager sceneManager) {
+    
+    public AddCourseScene(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
         this.courseData = new HashMap<>();
         gridPane = new GridPane();
     }
-
-   
-
+    
     public Scene getScene() {
         Label headerLabel = new Label("Add Course");
 
         Label schoolIdLabel = new Label("School ID:");
         TextField schoolIdTextField = new TextField();
 
-        Label numberLabel = new Label("Number:");
-        TextField numberTextField = new TextField();
+        Label termIndexLabel = new Label("Term Index:");
+        TextField termIndexTextField = new TextField();
 
-        Label nameLabel = new Label("Name:");
-        TextField nameTextField = new TextField();
+        Label courseNameLabel = new Label("Name:");
+        TextField courseNameTextField = new TextField();
 
-        Label creditLabel = new Label("Credit:");
-        TextField creditTextField = new TextField();
+        Label courseIDLabel = new Label("Course ID:");
+        TextField courseIDTextField = new TextField();
 
-        Label hoursLabel = new Label("Hours:");
-        TextField hoursTextField = new TextField();
+        Label courseCodeLabel = new Label("Course code:");
+        TextField courseCodeTextField = new TextField();
 
-        Label codeLabel = new Label("Code:");
-        TextField codeTextField = new TextField();
+        Label instructorLabel = new Label("Instructor:");
+        TextField instructorTextField = new TextField();
 
-        Label idLabel = new Label("ID:");
-        TextField idTextField = new TextField();
+        Label courseCreditLabel = new Label("ID:");
+        TextField courseCreditTextField = new TextField();
 
         Label evalCountLabel = new Label("Evaluation Count:");
         TextField evalCountTextField = new TextField();
@@ -68,23 +64,23 @@ public class AddScene {
         gridPane.add(schoolIdLabel, 0, 0);
         gridPane.add(schoolIdTextField, 1, 0);
 
-        gridPane.add(numberLabel, 0, 1);
-        gridPane.add(numberTextField, 1, 1);
+        gridPane.add(termIndexLabel, 0, 1);
+        gridPane.add(termIndexTextField, 1, 1);
 
-        gridPane.add(nameLabel, 0, 2);
-        gridPane.add(nameTextField, 1, 2);
+        gridPane.add(courseNameLabel, 0, 2);
+        gridPane.add(courseNameTextField, 1, 2);
 
-        gridPane.add(creditLabel, 0, 3);
-        gridPane.add(creditTextField, 1, 3);
+        gridPane.add(courseIDLabel, 0, 3);
+        gridPane.add(courseIDTextField, 1, 3);
 
-        gridPane.add(hoursLabel, 0, 4);
-        gridPane.add(hoursTextField, 1, 4);
+        gridPane.add(courseCodeLabel, 0, 4);
+        gridPane.add(courseCodeTextField, 1, 4);
 
-        gridPane.add(codeLabel, 0, 5);
-        gridPane.add(codeTextField, 1, 5);
+        gridPane.add(instructorLabel, 0, 5);
+        gridPane.add(instructorTextField, 1, 5);
 
-        gridPane.add(idLabel, 0, 6);
-        gridPane.add(idTextField, 1, 6);
+        gridPane.add(courseCreditLabel, 0, 6);
+        gridPane.add(courseCreditTextField, 1, 6);
 
         gridPane.add(evalCountLabel, 0, 7);
         gridPane.add(evalCountTextField, 1, 7);
@@ -97,24 +93,26 @@ public class AddScene {
 
         Button submitButton = new Button("Submit");
         submitButton.setOnAction(event -> {
-            // Store data in the courseData hashmap
             courseData.put("schoolId", schoolIdTextField.getText());
-            courseData.put("number", numberTextField.getText());
-            courseData.put("name", nameTextField.getText());
-            courseData.put("credit", creditTextField.getText());
-            courseData.put("hours", hoursTextField.getText());
-            courseData.put("code", codeTextField.getText());
-            courseData.put("id", idTextField.getText());
+            courseData.put("termIndex", termIndexTextField.getText());
+            courseData.put("courseName", courseNameTextField.getText());
+            courseData.put("courseID", courseIDTextField.getText());
+            courseData.put("courseCode", courseCodeTextField.getText());
+            courseData.put("instructor", instructorTextField.getText());
+            courseData.put("credit", courseCreditTextField.getText());
             courseData.put("evalCount", evalCountTextField.getText());
-            courseData.put("weightsArray", weightsTextField.getText());
-            courseData.put("namesArray", namesTextField.getText());
-
-            // Switch to the confirmation scene
+            courseData.put("evalWeights", weightsTextField.getText());
+            courseData.put("evalNames", namesTextField.getText());
+            try {
+                CloudConnect.callFunction("add-course", courseData);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            sceneManager.setScene(new Confirmation(sceneManager, "Course created successfully!").getScene());
         });
 
         Button backButton = new Button("Back");
         backButton.setOnAction(event -> {
-            // Switch to the home scene
             sceneManager.showHomeScene();
         });
         
@@ -123,9 +121,8 @@ public class AddScene {
         hBox.setSpacing(10);
 
 
-        Scene scene = new Scene(gridPane, 400, 600);
+        Scene scene = new Scene(gridPane, 1200, 720);
         scene.getStylesheets().add("styles.css");
-        // Set the scene and return it
         return scene;
     }
 

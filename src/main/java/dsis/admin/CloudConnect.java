@@ -20,7 +20,6 @@ public class CloudConnect {
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
 
-            // Set the request body with parameters
             String requestBody = getParamsString(params);
             OutputStream outputStream = connection.getOutputStream();
             outputStream.write(requestBody.getBytes(StandardCharsets.UTF_8));

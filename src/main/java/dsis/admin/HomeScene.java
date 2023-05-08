@@ -1,5 +1,6 @@
 package dsis.admin;
 
+import javafx.event.Event;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,22 +14,21 @@ public class HomeScene {
     }
 
     public Scene getScene() {
-        // Create buttons for navigation
         Button signUpButton = new Button("Sign Up");
-        Button editButton = new Button("Edit");
-        Button addButton = new Button("Add");
+        Button addTermButton = new Button("Add Term");
+        Button addCourseButton = new Button("Add Course");
+        Button addSetEvalGradeButton = new Button("Set Evaluation Grade");
+        
 
-        // Add action listeners to buttons
         signUpButton.setOnAction(event -> sceneManager.showSignUpScene());
-        editButton.setOnAction(event -> sceneManager.showEditScene());
-        addButton.setOnAction(event -> sceneManager.showAddScene());
+        addTermButton.setOnAction(event -> sceneManager.showAddTermScene());
+        addCourseButton.setOnAction(event -> sceneManager.showAddCourseScene());
+        addSetEvalGradeButton.setOnAction(event -> sceneManager.showSetEvalGradeScene());
 
-        // Add buttons to a VBox layout
-        VBox layout = new VBox(20, signUpButton, editButton, addButton);
+        VBox layout = new VBox(20, signUpButton, addTermButton, addCourseButton, addSetEvalGradeButton);
         layout.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(layout, 400, 400);
+        Scene scene = new Scene(layout, 1200, 720);
         scene.getStylesheets().add("styles.css");
-        // Set the scene and return it
         return scene;
     }
 }
