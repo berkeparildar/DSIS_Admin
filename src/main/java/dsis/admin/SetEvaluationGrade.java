@@ -45,7 +45,7 @@ public class SetEvaluationGrade {
             termData.put("evalIndex", evaluationIndexTextField.getText());
             termData.put("evalGrade", evaluationGradeTextField.getText());
             try {
-                CloudConnect.callFunction("course-eval-grade", termData);
+                System.out.println(CloudConnect.callFunction("course-eval-grade", termData));
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

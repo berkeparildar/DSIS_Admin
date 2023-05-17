@@ -18,14 +18,16 @@ public class HomeScene {
         Button addTermButton = new Button("Add Term");
         Button addCourseButton = new Button("Add Course");
         Button addSetEvalGradeButton = new Button("Set Evaluation Grade");
+        Button attendanceButton = new Button("Set Attendance");
         
 
         signUpButton.setOnAction(event -> sceneManager.showSignUpScene());
         addTermButton.setOnAction(event -> sceneManager.showAddTermScene());
         addCourseButton.setOnAction(event -> sceneManager.showAddCourseScene());
         addSetEvalGradeButton.setOnAction(event -> sceneManager.showSetEvalGradeScene());
+        attendanceButton.setOnAction(Event -> sceneManager.showAttendanceScene());
 
-        VBox layout = new VBox(20, signUpButton, addTermButton, addCourseButton, addSetEvalGradeButton);
+        VBox layout = new VBox(20, signUpButton, addTermButton, addCourseButton, addSetEvalGradeButton, attendanceButton);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout, 1200, 720);
         scene.getStylesheets().add("styles.css");
